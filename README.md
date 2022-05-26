@@ -1,0 +1,2 @@
+# DlshogiOnMacOnnxRuntime
+Macのonnxruntime+Core MLでdlshogiの評価関数モデルを動作させる最低限のテストプログラム
