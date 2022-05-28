@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# external source
+/onnxruntime
+
+# output binary
+/bench
