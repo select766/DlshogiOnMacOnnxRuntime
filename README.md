@@ -19,3 +19,26 @@ sudo cp -a onnxruntime/onnxruntime-osx-universal2-1.11.1/lib/libonnxruntime.1.11
 ```
 
 ライブラリを使う際にセキュリティ警告が出る場合がある。Mac設定の「セキュリティとプライバシー」の一般タブで許可する。
+
+# ビルド
+
+```
+make
+```
+
+# ベンチマーク
+
+バッチサイズ1、CPUバックエンド、10秒間計測する場合
+
+```
+./bench 1 cpu 10
+```
+
+バックエンドは、`cpu`: CPU、 `coreml`: Core ML。Core MLでは理論上GPU/Neural Engineが使用可能であるが、macOS 12.4時点においてdlshogiモデルではこれらを使用しない模様。ただし、CPU上での動作のアルゴリズムがonnxruntimeのCPUバックエンドと異なるようで、Core MLを利用した方が20%程度高速となる。
+
+# モデル・テストケースの作成方法
+
+「強い将棋ソフトの創りかた」サンプルコードに従い、15ブロック224チャンネル(`resnet15x224_swish`)のモデルを学習後、以下のリポジトリのjupyter notebookを用いてonnxモデルファイルおよびテストケースを生成している。
+
+https://github.com/select766/dlshogi-model-on-coreml/tree/master/colab
+
