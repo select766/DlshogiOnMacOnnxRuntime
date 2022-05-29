@@ -22,7 +22,7 @@ void read_test_case(vector<float> &input_1, vector<float> &input_2, vector<float
 
     // input: [test_case_size, 119, 9, 9], output_policy: [test_case_size, 2187], output_value: [test_case_size, 1]
     // 全てfloat32でこの順で保存されている
-    // output_valueはsigmoidがかかっていない
+    // output_valueはsigmoidがかかっている
     // ONNXモデルではinput_1: [batch_size, 62, 9, 9], input_2: [batch_size, 57, 9, 9]に分ける必要がある
 
     input_1.resize(test_case_size * input_1_ch * input_spatial * sizeof(float));
